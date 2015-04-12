@@ -1,0 +1,16 @@
+#Add the project as a submodule
+git submodule add http://git.eclipse.org/gitroot/mosquitto/org.eclipse.mosquitto.git mosquitto
+
+# Misc submodule commands
+git submodule status
+git submodule init
+git submodule update
+
+# Misc recursive submodule commands
+git submodule update --init --recursive
+git submodule update --recursive
+
+# Submodule status and sync commands
+git submodule foreach 'git log --oneline --max-count=1'
+git submodule foreach 'git remote update && git checkout master && git pull'
+
