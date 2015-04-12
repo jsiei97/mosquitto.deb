@@ -45,6 +45,9 @@ echo "  git log: "$(git log --oneline | head -n1) >> $control
 # Second part:
 # build it and populate the DEBIAN dir
 
+#Enable websockets
+sed -i 's/\(WITH_WEBSOCKETS:=\).*/\1yes/g' config.mk || exit 26
+
 make -j || exit 28
 make install prefix=/usr/ DESTDIR=$base/$NAME/ || exit 30
 
